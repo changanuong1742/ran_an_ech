@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        function Frog(name,weight,speed,status) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.status = status;
+            this.getStatus = function () {
+                return this.status;
+            }
+            this.setStatus = function (newStatus) {
+                this.status = newStatus;
+            }
+        }
+
+        let frog = new Frog('frog',20,10,true);
+
+        function Solid(name,weight,speed) {
+        this.name = name;
+        this.weight = weight;
+        this.speed = speed;
+        this.catch = function (frog) {
+            if(this.speed>frog.speed){
+                console.log('Rắn ' + this.name + ' đã bắt được con ếch ' + frog.name);
+            } else {
+                console.log('Rắn ' + this.name + ' không bắt được con ếch ' + frog.name);
+            }
+        };
+        this.eat = function (frog) {
+            if(frog.getStatus()){
+                console.log('con ếch nay se bi an ');
+                this.weight += frog.weight;
+                frog.setStatus(false);
+            } else {
+                console.log('con ếch này đã chết rồi');
+            }
+        }
+
+        }
+let solid = new Solid('solid',30,20);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
